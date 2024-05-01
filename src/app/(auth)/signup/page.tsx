@@ -39,7 +39,8 @@ const Signup: React.FC<SignupProps> = () => {
     axios
       .post("/api/signup", inputForm)
       .then(() => {
-        toast({ title: "You're logged in successfully!" });
+        toast({ title: "Registered successfully!" });
+        router.push("/login");
       })
       .catch((error) => {
         console.log("handleSignup Error", error);
@@ -47,8 +48,6 @@ const Signup: React.FC<SignupProps> = () => {
       .finally(() => {
         setIsLoading(false);
       });
-
-    router.push("/");
   };
 
   return (

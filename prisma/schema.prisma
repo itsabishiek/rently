@@ -53,8 +53,9 @@ model Listing {
   userId String @db.ObjectId
   title String
   description String
-  image String
+  imageUrls String[]
   price String
+  city String
   address String
   type String
   furnishStatus String
@@ -64,6 +65,8 @@ model Listing {
   balconyCount Int
   availableFor String[]
   maintenanceFee Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt  
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

@@ -1,7 +1,14 @@
 import PropertyCard from "@/components/PropertyCard";
 import SearchBar from "@/components/SearchBar";
+import getListings, { ListingsParams } from "./actions/getListings";
 
-export default function Home() {
+type HomeProps = {
+  searchParams: ListingsParams;
+};
+
+const Home: React.FC<HomeProps> = async ({ searchParams }) => {
+  const listings = await getListings(searchParams);
+
   return (
     <div className="mt-[20px]">
       <div className="p-6 rounded-md bg-slate-900">
@@ -17,11 +24,13 @@ export default function Home() {
         <SearchBar />
 
         <div className="grid grid-cols-3 gap-8">
-          {[...Array(5)].map((_, i) => (
-            <PropertyCard key={i} />
+          {listings?.map((listing, i) => (
+            <PropertyCard key={i} listing={listing} />
           ))}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Home;
