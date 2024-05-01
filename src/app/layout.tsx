@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import clsx from "clsx";
 import { Toaster } from "@/components/ui/toaster";
 import getCurrentUser from "./actions/getCurrentUser";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <main className="p-4 max-w-screen-xl w-full mx-auto">
+            <NextTopLoader color="#3b82f6" showSpinner={false} />
             <Toaster />
             <Navbar currentUser={currentUser} />
             {children}

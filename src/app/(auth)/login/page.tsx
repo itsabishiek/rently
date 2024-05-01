@@ -56,7 +56,7 @@ const Login: React.FC<LoginProps> = () => {
       <div className="max-w-[500px] w-full mx-auto bg-slate-800 p-6 flex flex-col gap-5">
         <h1 className="text-center text-2xl font-bold">Login</h1>
 
-        <form className="flex flex-col gap-3" onSubmit={handleLogin}>
+        <form className="flex flex-col gap-4" onSubmit={handleLogin}>
           <Input
             placeholder="Email"
             type="email"
@@ -77,23 +77,6 @@ const Login: React.FC<LoginProps> = () => {
             {isLoading ? <Loader /> : "Login"}
           </Button>
         </form>
-
-        <div className="flex items-center gap-2">
-          <hr className="w-full border-gray-600" />
-          <p className="text-muted-foreground text-[14px] font-bold">OR</p>
-          <hr className="w-full border-gray-600" />
-        </div>
-
-        <Button className="bg-white hover:bg-gray-100">
-          <Image
-            src="/glogo.png"
-            alt=""
-            width={20}
-            height={20}
-            className="mr-2"
-          />{" "}
-          Sign with Google
-        </Button>
 
         <span className="text-[15px] text-gray-300">
           Not have an account?{" "}

@@ -1,14 +1,13 @@
 "use client";
 
+import Loader from "@/components/Loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
-import Link from "next/link";
-import { ChangeEvent, FormEvent, useState } from "react";
-import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
+import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Loader from "@/components/Loader";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 type SignupProps = {};
 
@@ -57,7 +56,7 @@ const Signup: React.FC<SignupProps> = () => {
       <div className="max-w-[500px] w-full mx-auto bg-slate-800 p-6 flex flex-col gap-5">
         <h1 className="text-center text-2xl font-bold">Signup</h1>
 
-        <form className="flex flex-col gap-3" onSubmit={handleSignup}>
+        <form className="flex flex-col gap-4" onSubmit={handleSignup}>
           <Input
             placeholder="Name"
             type="text"
@@ -105,23 +104,6 @@ const Signup: React.FC<SignupProps> = () => {
             {isLoading ? <Loader /> : "Signup"}
           </Button>
         </form>
-
-        <div className="flex items-center gap-2">
-          <hr className="w-full border-gray-600" />
-          <p className="text-muted-foreground text-[14px] font-bold">OR</p>
-          <hr className="w-full border-gray-600" />
-        </div>
-
-        <Button className="bg-white hover:bg-gray-100">
-          <Image
-            src="/glogo.png"
-            alt=""
-            width={20}
-            height={20}
-            className="mr-2"
-          />{" "}
-          Sign with Google
-        </Button>
 
         <span className="text-[15px] text-gray-300">
           Already have an account?{" "}
