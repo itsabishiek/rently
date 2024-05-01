@@ -170,7 +170,7 @@ const PropertyListingClient: React.FC<PropertyListingClientProps> = ({
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-extrabold text-primary">
-              ₹ {listing.price}
+              ₹{listing.price}
               <span className="text-white text-sm"> / month</span>
             </h1>
 
@@ -181,25 +181,31 @@ const PropertyListingClient: React.FC<PropertyListingClientProps> = ({
 
           <p className="text-muted-foreground">{listing.description}</p>
 
-          <div className="flex items-center gap-2">
-            <span className="text-primary">Type</span>
-            <p className="text-[14px]">{listing.type}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-primary">Address</span>
-            <p className="text-[14px]">{listing.address}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-primary">Maintenance Fee</span>
-            <p className="text-[14px]">{listing.maintenanceFee}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-primary">Furnish Status</span>
-            <p className="text-[14px]">{listing.furnishStatus}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-primary">Available For</span>
-            <p className="text-[14px]">{listing.availableFor.join(", ")}</p>
+          <div className="flex justify-between py-6">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-primary">Type</span>
+                <p className="text-[14px]">{listing.type}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-primary">Address</span>
+                <p className="text-[14px]">{listing.address}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-primary">Maintenance Fee</span>
+                <p className="text-[14px]">₹{listing.maintenanceFee}</p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-primary">Furnish Status</span>
+                <p className="text-[14px]">{listing.furnishStatus}</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-primary">Available For</span>
+                <p className="text-[14px]">{listing.availableFor.join(", ")}</p>
+              </div>
+            </div>
           </div>
         </div>
 

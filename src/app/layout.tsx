@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Toaster } from "@/components/ui/toaster";
 import getCurrentUser from "./actions/getCurrentUser";
 import NextTopLoader from "nextjs-toploader";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default async function RootLayout({
             <Toaster />
             <Navbar currentUser={currentUser} />
             {children}
+            <Footer />
           </main>
         </ThemeProvider>
       </body>
