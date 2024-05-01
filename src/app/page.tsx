@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import PropertyCard from "@/components/PropertyCard";
 import SearchBar from "@/components/SearchBar";
 import getListings, { ListingsParams } from "./actions/getListings";
