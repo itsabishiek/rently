@@ -25,8 +25,9 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ listing }) => {
 
       <div className="p-4 flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <h1 className="text-primary text-[18px] font-bold">
-            {listing.price}
+          <h1 className="text-2xl font-extrabold text-primary">
+            ₹{listing.price}
+            <span className="text-white text-sm font-[500]"> / month</span>
           </h1>
           <span className="bg-blue-600 bg-opacity-30 p-1 rounded-md text-[13px] font-bold border border-primary">
             {listing.furnishStatus}

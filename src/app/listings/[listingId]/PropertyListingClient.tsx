@@ -21,6 +21,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Bath, BedDouble, BoxSelect, MapPin } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import axios from "axios";
+import { useToast } from "@/components/ui/use-toast";
+import Loader from "@/components/Loader";
 
 type PropertyListingClientProps = {
   listing: any;
@@ -31,6 +35,35 @@ const PropertyListingClient: React.FC<PropertyListingClientProps> = ({
   listing,
   currentUser,
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSendDetails = () => {
+    setIsLoading(true);
+
+    axios
+      .post("/api/sendContact", {
+        userId: listing?.userId,
+        listingId: listing?.id,
+        name: currentUser?.name,
+        email: currentUser?.email,
+        phoneNumber: currentUser?.phoneNumber,
+      })
+      .then(() => {
+        toast({
+          title: "Information sent",
+          description:
+            "Your contact information is sent to the owner, The owner will contact you soon.",
+        });
+      })
+      .catch((error) => {
+        console.log("handleSendDetails Error", error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <div className="bg-slate-900 min-h-[calc(100vh-136px)] h-full mt-[20px] p-6 rounded-md">
       <div className="w-[800px] mx-auto flex flex-col gap-4">
@@ -73,8 +106,11 @@ const PropertyListingClient: React.FC<PropertyListingClientProps> = ({
                         <p className="text-[16px]">{listing?.user?.type}</p>
                       </div>
 
-                      <Button className="text-white mt-5">
-                        Send your contact details
+                      <Button
+                        className="text-white mt-5"
+                        onClick={handleSendDetails}
+                      >
+                        {isLoading ? <Loader /> : "Send your contact details"}
                       </Button>
                     </div>
                   ) : (
