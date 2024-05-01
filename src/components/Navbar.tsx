@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           <Link href="/create" className="hover:text-primary">
             Rent
           </Link>
-          <Link href="/contacted-user">Contacts</Link>
+          <Link href="/contacted-users">Contacts</Link>
           <Link href="your-properties">My properties</Link>
         </div>
       )}
