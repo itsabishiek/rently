@@ -28,6 +28,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ children }) => {
         <DropdownMenuItem asChild>
           <Link href="/contacted-users">Contacted users</Link>
         </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/your-properties">Your properties</Link>
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

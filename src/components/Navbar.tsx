@@ -19,6 +19,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
         </h1>
       </Link>
 
+      {currentUser && (
+        <div className="flex items-center gap-6">
+          <Link href="/create" className="hover:text-primary">
+            Rent
+          </Link>
+          <Link href="/contacted-user">Contacts</Link>
+          <Link href="your-properties">My properties</Link>
+        </div>
+      )}
+
       <div className="flex items-center gap-2">
         {currentUser ? (
           <UserMenu>
