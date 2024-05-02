@@ -2,15 +2,15 @@ import React from "react";
 import getYourListings from "../actions/getYourListings";
 import PropertyCard from "@/components/PropertyCard";
 
-type YourPropertiesProps = {};
+type MyPropertiesProps = {};
 
-const YourProperties: React.FC<YourPropertiesProps> = async () => {
+const MyProperties: React.FC<MyPropertiesProps> = async () => {
   const listings = await getYourListings();
 
   return (
     <div className="bg-slate-900 min-h-[calc(100vh-136px)] h-full mt-[20px] p-6 rounded-md">
       <h1 className="text-2xl font-extrabold text-primary mb-8">
-        Your Properties
+        My Properties
       </h1>
 
       {listings?.length === 0 ? (
@@ -27,4 +27,4 @@ const YourProperties: React.FC<YourPropertiesProps> = async () => {
     </div>
   );
 };
-export default YourProperties;
+export default MyProperties;

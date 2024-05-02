@@ -29,7 +29,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ children }) => {
           <Link href="/contacted-users">Contacted users</Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/your-properties">Your properties</Link>
+          <Link href="/myproperties">My properties</Link>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
       </DropdownMenuContent>
